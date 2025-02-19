@@ -1,0 +1,22 @@
+.body{
+    -fx-background: #042d96;
+}
+
+.voice-maker-label {
+    -fx-font-size: 25px;
+    -fx-fill-width: bold;
+    -fx-padding: 10px;
+    -fx-font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.text-area{
+    -fx-font-size: 15px;
+    -fx-control-inner-background: #20e7e3;
+
+}
+
+.setting-Label{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+
+}
