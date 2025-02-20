@@ -6,11 +6,11 @@
     -fx-font-size: 25px;
     -fx-fill-width: bold;
     -fx-padding: 10px;
-    -fx-font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .text-area{
-    -fx-font-size: 15px;
+    -fx-font-size: 16px;
     -fx-control-inner-background: #20e7e3;
 
 }
@@ -19,4 +19,24 @@
     -fx-font-size: 16px;
     -fx-font-weight: bold;
 
+}
+
+.setting-combo-box{
+    -fx-font-size: 16px;
+    -fx-control-inner-background: #20e7e3;
+    -fx-background: #042d96;
+
+}
+
+.speak-button{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-color: #f5824a;
+    -fx-text-fill: white;
+    -fx-padding: 0;
+
+}
+
+.speak-button:pressed{
+    -fx-opacity: 0.75;
 }
