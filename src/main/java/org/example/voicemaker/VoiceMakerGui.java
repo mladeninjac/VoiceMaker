@@ -1,6 +1,8 @@
 package org.example.voicemaker;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -17,7 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
-import java.awt.*;
+//import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -66,8 +68,18 @@ public class VoiceMakerGui extends Application {
         box.getChildren().add(settingsPane);
 
         Button speakButton = createImageButton();
+        speakButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String msg = textArea.getText();
+                String voice = voices.getValue();
+                String rate = rates.getValue();
+                String volume = volumes.getValue();
 
-        //tu si stao
+                VoiceMakerController.speak(msg, voice, rate, volume);
+            }
+        });
+
         StackPane speakButtonPane = new StackPane();
         speakButtonPane.setPadding(new Insets(40,20,0,20));
         speakButtonPane.getChildren().add(speakButton);
@@ -121,11 +133,28 @@ public class VoiceMakerGui extends Application {
         GridPane.setHalignment(rateLabel, HPos.CENTER);
         GridPane.setHalignment(volumeLabel, HPos.CENTER);
 
+        //voices
         voices = new ComboBox<>();
+        voices.getItems().addAll(
+                VoiceMakerController.getVoices()
+        );
+        voices.setValue(voices.getItems().get(0));
         voices.getStyleClass().add("setting-combo-box");
+
+        //rates
         rates = new ComboBox<>();
+        rates.getItems().addAll(
+                VoiceMakerController.getSpeedRates()
+        );
+        rates.setValue(rates.getItems().get(0));
         rates.getStyleClass().add("setting-combo-box");
+
+        //volume
         volumes = new ComboBox<>();
+        volumes.getItems().addAll(
+                VoiceMakerController.getVolumeLevels()
+        );
+        volumes.setValue(volumes.getItems().get(0));
         volumes.getStyleClass().add("setting-combo-box");
 
         gridPane.add(voices, 0, 1);
