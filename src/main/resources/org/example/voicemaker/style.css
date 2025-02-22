@@ -25,8 +25,13 @@
     -fx-font-size: 16px;
     -fx-control-inner-background: #20e7e3;
     -fx-background: #042d96;
-
 }
+
+.setting-combo-box .list-cell{
+    -fx-text-fill: #042d96;
+}
+
+
 
 .speak-button{
     -fx-font-size: 16px;
